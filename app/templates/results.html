@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock, Paper, Scissors Game</title>
+</head>
+<body>
+  <h1>Rock, Paper, Scissors Game</h1>
+  <div class="game-container">
+    <div class="user-choice">
+      <p><h2>Your Choice:</h2></p>
+      <form id="playForm" action="/play" method="post">
+        <input type="hidden" name="user_choice" id="user_choice" value="">
+        <img src="https://ih1.redbubble.net/image.3076460160.1794/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="rock" width="300" height="300" onclick="setImage('rock')">
+        <img src="https://ih1.redbubble.net/image.3076454760.1647/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="paper" width="300" height="300" onclick="setImage('paper')">
+        <img src="https://ih1.redbubble.net/image.3076463272.1879/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="scissors" width="300" height="300" onclick="setImage('scissors')">
+      </form>
+    </div>
+    <div class="result">
+      <p><h2>Computer Choice: {{ computer_choice }}</h2></p>
+      <p><h2>The winner is: {{ winner }}</h2></p>
+      <p><h2>Your Score: {{user_score}}</h2></p>
+      <p><h2>Computer Score: {{computer_score}}</h2></p>
+    </div>
+  </div>
+  <script>
+    function setImage(choice) {
+      document.getElementById("user_choice").value = choice;
+      document.getElementById("playForm").submit();
+    }
+  </script>
+</body>
+</html>
